@@ -1,0 +1,27 @@
+1. In n8n tool click the right side + symbol it is asking for node you select first node as scheduled trigger.
+    in scheduled trigger change Trigger Interval to seconds i set that for 5 secounds.
+2. then add node HTTP Request in there 
+    Method : GET
+    URL : it your google sheet url 
+    How to get google sheet url -> Go to google sheet -> files -> share -> publish to web -> name that -> click publish
+    in google sheet you have to put some info like first name, last name, primary mail, username, status.
+3. add new node select the code node 
+    that copy and paste the my code -> Code for csv to json
+4. add new node select the code node
+    to change the any case to lower case -> Conversion of lower case
+5. add if node -> if1
+    condition is if the status is moved means it send to the update user
+6. add if node -> if2
+    condition is if the status is leaver means it deactivate the user
+7. add loop over items 
+    in settings if an error -> continue using error output
+    it is for seperate the user one by one if we give more user in the google sheet means it seperate the user
+    in there loop over you need to select other node so select the HTTP request 
+    in HTTP request 
+    Method : GET
+    URL : okta url eg (https://dev.xxxxx.okta.com/api/v1/users/{{$json.Username}}
+    you will get this from the okta tenant 
+    last you must do paste last {{$json.Username}}
+    it success return to the loop and also to the if1 and if2
+    error means go to the create user because the user is not in okta 
+    
