@@ -1,0 +1,8 @@
+1. In okta
+    Go to security -> API
+    API -> Token 
+    Generate token or create token click that
+    copy that it only show once
+2. In n8n
+    new node select okta it show some like create a user, update a user, delete a user like that select that anyone
+    eg Okta create a user Go to Credential and put okta URL and paste the Token 
