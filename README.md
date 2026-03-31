@@ -30,8 +30,11 @@ User status values are converted to lowercase for standardization (joiner, mover
 The workflow uses IF conditions to determine the lifecycle event:
 
 If status = mover → Update user
+
 If status = leaver → Deactivate user
+
 If user not found in Okta → Create user (Joiner)
+
 5. Loop Over Items
 
 The Loop Over Items node processes multiple users one by one (batch processing), ensuring each user is handled individually.
