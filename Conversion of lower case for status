@@ -1,0 +1,8 @@
+for (const item of $input.all()) {
+  item.json.Status = item.json.Status.toLowerCase();
+
+
+  delete item.json.my_new_field;
+}
+
+return $input.all();
